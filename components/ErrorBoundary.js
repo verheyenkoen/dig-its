@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Error from "next/error";
-import Raven from "raven-js";
+import * as Sentry from "@sentry/react";
 
 import version from "../version";
 
@@ -12,21 +12,21 @@ export default class ErrorBoundary extends Component {
       error: null,
       report: process.env.NODE_ENV === "production",
     };
+  }
 
+  componentDidMount() {
     if (this.state.report) {
-      const options = { release: version };
-
-      Raven.config(
-        "https://c351cbe16e2d4e9a956d36394557f7cd@sentry.io/299119",
-        options,
-      ).install();
+      Sentry.init({
+        dsn: "https://c351cbe16e2d4e9a956d36394557f7cd@sentry.io/299119",
+        release: version,
+      });
     }
   }
 
   componentDidCatch(error, errorInfo) {
     this.setState({ error });
 
-    Raven.captureException(error, { extra: errorInfo });
+    Sentry.captureException(error, { extra: errorInfo });
   }
 
   render() {
@@ -35,7 +35,9 @@ export default class ErrorBoundary extends Component {
         <div
           className="error"
           onClick={() =>
-            this.state.report && Raven.lastEventId() && Raven.showReportDialog()
+            this.state.report &&
+            Sentry.lastEventId() &&
+            Sentry.showReportDialog()
           }
         >
           <Error />
