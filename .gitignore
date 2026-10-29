@@ -7,3 +7,4 @@ dig-its.github.io/
 version.js
 yarn-error.log
 .vercel
+.env*
