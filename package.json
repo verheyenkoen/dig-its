@@ -6,28 +6,27 @@
   "repository": "github:dig-its/dig-its",
   "scripts": {
     "version": "echo \"export default '`git rev-parse HEAD`';\" > version.js",
-    "dev": "yarn run version && next",
-    "build": "yarn run version && next build",
-    "export": "yarn run build && next export",
-    "lint": "next lint",
-    "start": "next start",
-    "serve": "yarn run export && npx http-server out/"
+    "dev": "bun run version && next dev",
+    "build": "bun run version && next build",
+    "lint": "eslint .",
+    "start": "next start"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "next": "^16.0.10",
+    "lodash": "^4.18.1",
+    "next": "16.4.3",
     "object-path": "0.11.8",
     "prop-types": "^15.8.1",
     "raven-js": "^3.27.2",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "react-fontawesome": "^1.7.1",
     "react-ga4": "^2.1.0",
     "reactstrap": "^9.2.3"
   },
   "devDependencies": {
-    "eslint": "^9.39.1",
-    "eslint-config-next": "16.0.10"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "eslint-config-next": "16.4.3"
   },
   "resolutions": {
     "nth-check": "^2.0.1"
