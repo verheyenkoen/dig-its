@@ -14,21 +14,21 @@
   "dependencies": {
     "@sentry/react": "^11.10.0",
     "lodash": "^4.18.1",
-    "next": "16.4.3",
+    "next": "16.4.6",
     "object-path": "0.11.8",
     "prop-types": "^15.8.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-fontawesome": "^1.7.1",
-    "react-ga4": "^2.1.0",
+    "react-ga4": "^3.0.1",
     "reactstrap": "^9.2.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.13.0",
-    "eslint-config-next": "16.4.3"
+    "eslint": "^10.15.0",
+    "eslint-config-next": "16.4.6"
   },
-  "resolutions": {
-    "nth-check": "^2.0.1"
+  "overrides": {
+    "minimatch": "^11.0.9"
   }
 }
